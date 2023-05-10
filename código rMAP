@@ -1,0 +1,1 @@
+rMAP -t 8 -r pseudomonas.gbk -i data -o pseudo-output -f -a megahit -m -vc -q -p -s -g
