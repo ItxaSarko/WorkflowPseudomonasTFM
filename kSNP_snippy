@@ -1,0 +1,15 @@
+
+#SNIPPY
+/home/uoc/snippy/bin/snippy-multi input23.tab --ref pseudomonas.gbk --cpus 3 > runme.sh
+cd /home/uoc/snippy/bin
+sh ./runme.sh
+
+# Puede eliminar todos los caracteres "extraños" y reemplazarlos con N usando el snippy-clean_full_aln incluido. Esto es útil cuando necesita pasarlo a una herramienta de creación de árboles o eliminación de recombinación:
+
+/home/uoc/snippy/bin/snippy-clean_full_aln /home/uoc/snippy/bin/core.full.aln >clean.full.aln
+conda activate gubbins_git
+run_gubbins.py -p Gubbins clean.full.aln
+
+#Matriz de distancias
+snp-dists
+snp-dists core.full.aln > matrix.tsv
