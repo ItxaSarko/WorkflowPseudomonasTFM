@@ -1,0 +1,53 @@
+
+
+```{r}
+library(ggplot2)
+library(ggtree)
+library(knitr)
+library(plotly)
+library(RColorBrewer)
+library(reshape2)
+library(treeio)
+library(ape)
+library(data.table)
+library(dplyr)
+library(formattable)
+library(tidyr)
+library(readr)
+library(readxl)
+library(gplots)
+
+```
+
+```{r}
+data<-read.table("C:/Users/Alain/Desktop/Genes de virulencia.csv", sep=";",head=T)
+data
+
+
+data1<-select(data, "Aislamiento", "exoT", "exoU","exoS","exoY","toxA","lasA", "lasB","pvdO","algD","algL", "algX","mucA")
+data1
+summary(data1)
+rownames(data1)<-data1[ ,1]
+rownames(data1)
+samp2<-data1[,-1]
+mat_data<-data.matrix(data1[,2:ncol(samp2)])
+mat_data
+```
+```{r}
+
+```
+
+```{r}
+mat_data
+```
+
+```{r}
+library("pheatmap")
+require(ggplot2)
+require(colorspace)
+library(grid)
+```
+
+```{r}
+pheatmap(mat_data, color=colorRampPalette(c("deepskyblue4","goldenrod","firebrick"))(100), frontsize_col=6, show_rownames = T, show_colnames = T, cluster_cols = F, cluster_rows = T, main="Genes de virulencia ST175",)
+```
