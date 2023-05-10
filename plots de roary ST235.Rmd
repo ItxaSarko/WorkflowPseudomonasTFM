@@ -1,0 +1,85 @@
+```{r}
+library(ggplot2)
+
+
+mydata = read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_new_genes.Rtab")
+boxplot(mydata, data=mydata, main="Número de genes nuevos",
+         xlab="No. de genomes", ylab="No. de genes",varwidth=TRUE, ylim=c(0,max(mydata)), outline=FALSE)
+```
+```{r}
+mydata = read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_conserved_genes.Rtab")
+boxplot(mydata, data=mydata, main="Número de genes conservados",
+          xlab="No. de genomes", ylab="No. de genes",varwidth=TRUE, ylim=c(0,max(mydata)), outline=FALSE)
+```
+```{r}
+
+ 
+mydata = read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_genes_in_pan_genome.Rtab")
+boxplot(mydata, data=mydata, main="número de genes en el pangenoma",
+          xlab="No. de genomes", ylab="No. de genes",varwidth=TRUE, ylim=c(0,max(mydata)), outline=FALSE)
+
+```
+
+
+```{r}
+
+mydata = read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_unique_genes.Rtab")
+boxplot(mydata, data=mydata, main="Número de genes únicos",
+         xlab="No. de genomes", ylab="No. de genes",varwidth=TRUE, ylim=c(0,max(mydata)), outline=FALSE)
+
+```
+
+
+```{r}
+mydata = read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/blast_identity_frequency.Rtab")
+plot(mydata,main="Número de aciertos de blastp con diferente porcentaje de identidad",  xlab="Identidad de porcentaje de blast", ylab="No. de resultados blast")
+```
+
+
+```{r}
+library(ggplot2)
+conserved = colMeans(read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_conserved_genes.Rtab"))
+total = colMeans(read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_genes_in_pan_genome.Rtab"))
+
+genes = data.frame( genes_to_genomes = c(conserved,total),
+                    genomes = c(c(1:length(conserved)),c(1:length(conserved))),
+                    Key = c(rep("Genes conservados",length(conserved)), rep("Total de genes",length(total))) )
+                    
+ggplot(data = genes, aes(x = genomes, y = genes_to_genomes, group = Key, linetype=Key)) +geom_line()+
+theme_classic() +
+ylim(c(1,max(total)))+
+xlim(c(1,length(total)))+
+xlab("No. de genomes") +
+ylab("No. de genes")+ theme_bw(base_size = 16) +  theme(legend.justification=c(0,1),legend.position=c(0,1))
+```
+
+
+```{r}
+unique_genes = colMeans(read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_unique_genes.Rtab"))
+new_genes = colMeans(read.table("C:/Users/Alain/Desktop/pseudo-output/pangenomes/number_of_new_genes.Rtab"))
+
+genes = data.frame( genes_to_genomes = c(unique_genes,new_genes),
+                    genomes = c(c(1:length(unique_genes)),c(1:length(unique_genes))),
+                    Key = c(rep("Genes únicos",length(unique_genes)), rep("genes nuevos",length(new_genes))) )
+                    
+ggplot(data = genes, aes(x = genomes, y = genes_to_genomes, group = Key, linetype=Key)) +geom_line()+
+theme_classic() +
+ylim(c(1,max(unique_genes)))+
+xlim(c(1,length(unique_genes)))+
+xlab("No. de genomes") +
+ylab("No. de genes")+ theme_bw(base_size = 16) +  theme(legend.justification=c(1,1),legend.position=c(1,1))
+```
+```
+
+
+
+
+
+
+
+
+
+######################
+
+
+
