@@ -1,0 +1,36 @@
+```{r}
+detachAllPackages <- function() {
+  basic.packages <- c("package:stats","package:graphics","package:grDevices","package:utils","package:datasets","package:methods","package:base")
+  package.list <- search()[ifelse(unlist(gregexpr("package:",search()))==1,TRUE,FALSE)]
+  package.list <- setdiff(package.list,basic.packages)
+  if (length(package.list)>0)  for (package in package.list) detach(package, character.only=TRUE)
+}
+
+detachAllPackages()
+
+install_load <- function(Required_Packages) {
+  for(package in Required_Packages){
+    if (!package %in% installed.packages()) install.packages(package, character.only = TRUE)
+    library(package, character.only = TRUE)
+  }
+}
+library(readr)
+library(readxl)
+table_input <- read_excel("C:/Users/Alain/Desktop/pseudo-output/Secuencias_de_insercion_ST235.xls")
+table_input <- as.data.frame(table_input)
+
+
+abscence_presence <- as.matrix(table_input[,-1])
+rownames(abscence_presence) <- table_input[,1]
+abscence_presence[is.na(abscence_presence)] <- 0
+abscence_presence[which(abscence_presence!=0)] <- 1
+a_p_matrix <- mapply(abscence_presence, FUN=as.numeric)
+a_p_matrix <- matrix(data=a_p_matrix, ncol=length(colnames(abscence_presence)), nrow=length(row.names(abscence_presence)))
+row.names(a_p_matrix) <- row.names(abscence_presence)
+colnames(a_p_matrix) <- colnames(abscence_presence)
+library("gplots")
+library(RColorBrewer)
+Colors=brewer.pal(11,"Spectral")
+heatmap.2(a_p_matrix, col = Colors, main = "Secuencias de inserción ST235", trace="none" )
+```
+
