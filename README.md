@@ -5,7 +5,7 @@ En este repositorio se encuentran los ficheros generados durante el Trabajo de f
 
 
 
-Para realizar este trabajo se ha utilizado el pipeline RMAP (Rapid Microbial Analysis Pipeline https://github.com/GunzIvan28/rMAP) herramienta desarrollada para caracterizar el resistoma, viruloma y estudio del pangenoma, entre otros, de los microorganismos catalogados como ESKAPE ( *Enterococcus faecium, Staphylococcus aureus, Klebsiella pneumoniae, Acinetobacter baumannii, Pseudomonas aeruginosa y Enterobacter* (Figura 3).  
+Para realizar este trabajo se ha utilizado el pipeline RMAP (*Rapid Microbial Analysis Pipeline* https://github.com/GunzIvan28/rMAP) herramienta desarrollada para caracterizar el resistoma, viruloma y estudio del pangenoma, entre otros, de los microorganismos catalogados como ESKAPE ( *Enterococcus faecium, Staphylococcus aureus, Klebsiella pneumoniae, Acinetobacter baumannii, Pseudomonas aeruginosa y Enterobacter* (Figura 3).  
  ![image](https://github.com/ItxaSarko/WorkflowPseudomonasTFM/assets/100303282/8a5005c5-7ec9-4bc4-ab89-fb07d476a375)
  
  
