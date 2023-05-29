@@ -9,7 +9,7 @@ Para realizar este trabajo se ha utilizado el pipeline **RMAP** (*Rapid Microbia
  ![image](https://github.com/ItxaSarko/WorkflowPseudomonasTFM/assets/100303282/8a5005c5-7ec9-4bc4-ab89-fb07d476a375)
  
  
-**Figura 3**. *Flujo de trabajo llevado a cabo por la herramienta rMAP utilizada en este trabajo: Análisis de calidad de los reads (FastQC, MultiQC, Trimmomatic), reconstrucción del genoma (Megahit), anotación del genoma (Prokka), detección de mecanismos de resistencia, virulencia y búsqueda de plásmidos (AMRFinder, Abricate, Blastn), análisis del pangenoma (Roary, FastTree) y caracterización de secuencias de inserción (ISMapper). Adaptada de 
+**Figura 1**. *Flujo de trabajo llevado a cabo por la herramienta rMAP utilizada en este trabajo: Análisis de calidad de los reads (FastQC, MultiQC, Trimmomatic), reconstrucción del genoma (Megahit), anotación del genoma (Prokka), detección de mecanismos de resistencia, virulencia y búsqueda de plásmidos (AMRFinder, Abricate, Blastn), análisis del pangenoma (Roary, FastTree) y caracterización de secuencias de inserción (ISMapper). Adaptada de 
 https://www.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000583*
 
 
